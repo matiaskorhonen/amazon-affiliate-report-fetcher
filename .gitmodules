@@ -1,0 +1,3 @@
+[submodule "olivaw"]
+	path = olivaw
+	url = git@github.com:L1quid/Olivaw.git
