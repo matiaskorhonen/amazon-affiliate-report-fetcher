@@ -4,6 +4,7 @@ require "csv"
 require "fileutils"
 require "open3"
 require "yaml"
+require "shellwords"
 
 # https://gist.github.com/jpmckinney/668628
 class KeyChain
@@ -29,11 +30,11 @@ private
 end
 
 def user
-  config.fetch("user")
+  Shellwords.escape(config.fetch("user").strip)
 end
 
 def password
-  KeyChain.find_internet_password '-s', 'www.amazon.com'
+  Shellwords.escape(KeyChain.find_internet_password('-s', 'www.amazon.com'))
 end
 
 def command(type: :orders, locale: :US)
