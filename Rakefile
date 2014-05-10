@@ -74,7 +74,7 @@ namespace :amazon do
       text = File.open(path).read
 
       CSV.open(path, "wb") do |csv|
-        CSV.parse(text, { col_sep: "\t"}) do |row|
+        CSV.parse(text, { col_sep: "\t", quote_char: "\u0007" }) do |row|
           row = row.to_a
           unless row[0] && (row[0].include?("All traffic prior to") || row[0].include?("Items with no orders"))
             csv << row
