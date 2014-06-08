@@ -55,7 +55,7 @@ namespace :amazon do
 
   desc "Get orders reports"
   task :reports do
-    %w(CA DE FR UK US).each do |locale|
+    %w(CA DE FR UK US ES).each do |locale|
       puts "Starting #{locale} orders request"
       stdin, stdout, stderr, orders_thr   = Open3.popen3(command(type: :orders, locale: locale))
       orders_thr.join
