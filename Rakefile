@@ -1,5 +1,8 @@
 # encoding: UTF-8
 
+# Set the terminal title
+`/bin/bash -c 'echo -n -e \"\033]0;Amazon Associates\007\" > /dev/tty'`
+
 require "csv"
 require "fileutils"
 require "open3"
